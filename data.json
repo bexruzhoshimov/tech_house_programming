@@ -1,0 +1,432 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "username": "user2",
+      "password": "user2",
+      "role": "customer"
+    },
+    {
+      "username": "user1",
+      "password": "user1",
+      "role": "customer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "C1",
+      "name": {
+        "en": "Kitchen Appliances",
+        "uz": "Oshxona texnikasi"
+      }
+    },
+    {
+      "id": "C2",
+      "name": {
+        "en": "Cleaning Devices",
+        "uz": "Tozalash uskunalari"
+      }
+    },
+    {
+      "id": "C3",
+      "name": {
+        "en": "Heating & Cooling",
+        "uz": "Isitish va sovitish"
+      }
+    },
+    {
+      "id": "C4",
+      "name": {
+        "en": "Personal Care",
+        "uz": "Shaxsiy parvarish"
+      }
+    },
+    {
+      "id": "C5",
+      "name": {
+        "en": "Smart Home",
+        "uz": "Aqlli uy"
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "P1",
+      "name": "Bosch Hand Mixer 450W",
+      "price": 350000,
+      "stock": 11,
+      "category_id": "C1",
+      "status": "inactive",
+      "description": "Compact hand mixer with 5 speeds and turbo mode."
+    },
+    {
+      "id": "P2",
+      "name": "Philips Blender 600W",
+      "price": 420000,
+      "stock": 6,
+      "category_id": "C1",
+      "status": "active",
+      "description": "600W blender for smoothies and sauces. 1.5L jug."
+    },
+    {
+      "id": "P3",
+      "name": "Artel Electric Oven 45L",
+      "price": 1850000,
+      "stock": 4,
+      "category_id": "C1",
+      "status": "active",
+      "description": "45L electric oven with timer and temperature control."
+    },
+    {
+      "id": "P4",
+      "name": "LG Vacuum Cleaner 2000W",
+      "price": 1250000,
+      "stock": 3,
+      "category_id": "C2",
+      "status": "active",
+      "description": "Powerful vacuum cleaner with HEPA filter."
+    },
+    {
+      "id": "P5",
+      "name": "Samsung Robot Vacuum",
+      "price": 3500000,
+      "stock": 2,
+      "category_id": "C2",
+      "status": "active",
+      "description": "Robot vacuum with smart mapping and auto charging."
+    },
+    {
+      "id": "P6",
+      "name": "Midea Air Conditioner 12k BTU",
+      "price": 4500000,
+      "stock": 1,
+      "category_id": "C3",
+      "status": "active",
+      "description": "Energy saving air conditioner for medium rooms."
+    },
+    {
+      "id": "P7",
+      "name": "Xiaomi Heater 2000W",
+      "price": 650000,
+      "stock": 10,
+      "category_id": "C3",
+      "status": "active",
+      "description": "Portable heater with safety protection and quiet mode."
+    },
+    {
+      "id": "P8",
+      "name": "Braun Hair Dryer",
+      "price": 380000,
+      "stock": 15,
+      "category_id": "C4",
+      "status": "active",
+      "description": "Hair dryer with cool shot and 3 heat settings."
+    },
+    {
+      "id": "P9",
+      "name": "Philips Electric Shaver",
+      "price": 520000,
+      "stock": 0,
+      "category_id": "C4",
+      "status": "active",
+      "description": "Electric shaver with flexible heads and fast charging."
+    },
+    {
+      "id": "P10",
+      "name": "Xiaomi Smart Speaker",
+      "price": 290000,
+      "stock": 9,
+      "category_id": "C5",
+      "status": "active",
+      "description": "Smart speaker with voice assistant and Bluetooth."
+    },
+    {
+      "id": "P11",
+      "name": "TP-Link Smart Plug",
+      "price": 110000,
+      "stock": 20,
+      "category_id": "C5",
+      "status": "active",
+      "description": "Wi-Fi smart plug with app control and scheduling."
+    },
+    {
+      "id": "P12",
+      "name": "Smart Door Sensor",
+      "price": 90000,
+      "stock": 12,
+      "category_id": "C5",
+      "status": "active",
+      "description": ""
+    }
+  ],
+  "carts": {
+    "ali": [
+      {
+        "product_id": "P2",
+        "qty": 1
+      },
+      {
+        "product_id": "P11",
+        "qty": 2
+      },
+      {
+        "product_id": "P1",
+        "qty": 1
+      }
+    ],
+    "madina": [],
+    "admin": [],
+    "user1": []
+  },
+  "favorites": {
+    "ali": [
+      "P4",
+      "P10",
+      "P1"
+    ],
+    "madina": [
+      "P1",
+      "P9"
+    ],
+    "admin": [],
+    "user1": [
+      "P5",
+      "P4",
+      "P8"
+    ]
+  },
+  "orders": [
+    {
+      "id": "O-1001",
+      "username": "ali",
+      "date": "2026-01-15 10:30",
+      "status": "Completed",
+      "delivery_method": "Delivery",
+      "address": "Tashkent, Chilonzor",
+      "membership": "Silver",
+      "promotion": "Weekend Deal",
+      "subtotal": 2010000,
+      "promo_discount": 100500,
+      "membership_discount": 57285,
+      "delivery_fee": 30000,
+      "total": 1882215,
+      "items": [
+        {
+          "product_id": "P4",
+          "name": "LG Vacuum Cleaner 2000W",
+          "qty": 1,
+          "unit_price": 1250000
+        },
+        {
+          "product_id": "P8",
+          "name": "Braun Hair Dryer",
+          "qty": 2,
+          "unit_price": 380000
+        }
+      ]
+    },
+    {
+      "id": "O-1002",
+      "username": "madina",
+      "date": "2026-01-16 09:15",
+      "status": "Completed",
+      "delivery_method": "Pickup",
+      "address": "",
+      "membership": "Bronze",
+      "promotion": "",
+      "subtotal": 870000,
+      "promo_discount": 0,
+      "membership_discount": 0,
+      "delivery_fee": 0,
+      "total": 870000,
+      "items": [
+        {
+          "product_id": "P1",
+          "name": "Bosch Hand Mixer 450W",
+          "qty": 1,
+          "unit_price": 350000
+        },
+        {
+          "product_id": "P9",
+          "name": "Philips Electric Shaver",
+          "qty": 1,
+          "unit_price": 520000
+        }
+      ]
+    },
+    {
+      "id": "O-1002",
+      "username": "ali",
+      "date": "2026-01-16 10:39",
+      "status": "Pending",
+      "delivery_method": "Delivery",
+      "address": "toshkent",
+      "membership": "Business",
+      "promotion": "Haftalik aksiya",
+      "subtotal": 1250000,
+      "promo_discount": 62500.0,
+      "membership_discount": 118750.0,
+      "delivery_fee": 0,
+      "total": 1068750.0,
+      "items": [
+        {
+          "product_id": "P4",
+          "name": "LG Vacuum Cleaner 2000W",
+          "qty": 1,
+          "unit_price": 1250000
+        }
+      ]
+    },
+    {
+      "id": "O-1003",
+      "username": "ali",
+      "date": "2026-01-16 14:32",
+      "status": "Pending",
+      "delivery_method": "Pickup",
+      "address": "",
+      "membership": "Bronze",
+      "promotion": "Oshxona chegirmasi",
+      "subtotal": 350000,
+      "promo_discount": 28000.0,
+      "membership_discount": 0.0,
+      "delivery_fee": 0,
+      "total": 322000.0,
+      "items": [
+        {
+          "product_id": "P1",
+          "name": "Bosch Hand Mixer 450W",
+          "qty": 1,
+          "unit_price": 350000
+        }
+      ]
+    },
+    {
+      "id": "O-1004",
+      "username": "user1",
+      "date": "2026-01-17 17:25",
+      "status": "Pending",
+      "delivery_method": "Delivery",
+      "address": "toshken",
+      "membership": "Bronze",
+      "promotion": "Haftalik aksiya",
+      "subtotal": 840000,
+      "promo_discount": 42000.0,
+      "membership_discount": 0.0,
+      "delivery_fee": 30000,
+      "total": 828000.0,
+      "items": [
+        {
+          "product_id": "P2",
+          "name": "Philips Blender 600W",
+          "qty": 2,
+          "unit_price": 420000
+        }
+      ]
+    },
+    {
+      "id": "O-1005",
+      "username": "user1",
+      "date": "2026-01-19 00:23",
+      "status": "Pending",
+      "delivery_method": "Pickup",
+      "address": "",
+      "membership": "Bronze",
+      "promotion": "",
+      "subtotal": 14100000,
+      "promo_discount": 0,
+      "membership_discount": 0.0,
+      "delivery_fee": 0,
+      "total": 14100000.0,
+      "items": [
+        {
+          "product_id": "P4",
+          "name": "LG Vacuum Cleaner 2000W",
+          "qty": 2,
+          "unit_price": 1250000
+        },
+        {
+          "product_id": "P6",
+          "name": "Midea Air Conditioner 12k BTU",
+          "qty": 2,
+          "unit_price": 4500000
+        },
+        {
+          "product_id": "P9",
+          "name": "Philips Electric Shaver",
+          "qty": 5,
+          "unit_price": 520000
+        }
+      ]
+    }
+  ],
+  "order_statuses": [
+    "Pending",
+    "Completed",
+    "Cancelled"
+  ],
+  "membership_rules": {
+    "Bronze": {
+      "discount_percent": 0,
+      "free_delivery": false
+    },
+    "Silver": {
+      "discount_percent": 3,
+      "free_delivery": false
+    },
+    "Gold": {
+      "discount_percent": 5,
+      "free_delivery": true
+    },
+    "Business": {
+      "discount_percent": 10,
+      "free_delivery": true
+    }
+  },
+  "promotions": [
+    {
+      "id": "PR1",
+      "name": {
+        "en": "Weekend Deal",
+        "uz": "Haftalik aksiya"
+      },
+      "discount_percent": 5,
+      "active": true
+    },
+    {
+      "id": "PR2",
+      "name": {
+        "en": "Kitchen Sale",
+        "uz": "Oshxona chegirmasi"
+      },
+      "discount_percent": 8,
+      "active": true,
+      "category_id": "C1"
+    },
+    {
+      "id": "PR3",
+      "name": {
+        "en": "Clearance 15%",
+        "uz": "Chegirma 15%"
+      },
+      "discount_percent": 15,
+      "active": false
+    }
+  ],
+  "support": {
+    "phone": "+998 90 123 45 67",
+    "email": "support@techhouse.uz"
+  },
+  "settings": {
+    "language": "uz",
+    "delivery_fee": 30000
+  },
+  "counters": {
+    "order": 1006,
+    "product": 13,
+    "category": 5
+  }
+}
