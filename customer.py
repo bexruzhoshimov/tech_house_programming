@@ -128,14 +128,13 @@ def search_products_flow(data, username):
         print(language.t("no_products"))
         utils.pause(language.t("press_enter"))
         return
-    product_list_screen(data, username, results,keyword_low)
+    product_list_screen(data, username, results)
 
 
-def product_list_screen(data, username, products,keyword_low):
+def product_list_screen(data, username, products):
     while True:
         utils.clear()
         print(language.t("menu_products"))
-        print(keyword_low)
         print()
         for idx, p in enumerate(products, 1):
             stock = p.get("stock", 0)

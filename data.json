@@ -6,6 +6,11 @@
       "role": "admin"
     },
     {
+      "username": "user",
+      "password": "user",
+      "role": "customer"
+    },
+    {
       "username": "user2",
       "password": "user2",
       "role": "customer"
@@ -161,6 +166,114 @@
       "category_id": "C5",
       "status": "active",
       "description": ""
+    },
+    {
+      "id": "P13",
+      "name": "Tefal Steam Iron 2400W",
+      "price": 590000,
+      "stock": 7,
+      "category_id": "C2",
+      "status": "active",
+      "description": "Steam iron with anti-drip system and ceramic soleplate."
+    },
+    {
+      "id": "P14",
+      "name": "Panasonic Microwave Oven 20L",
+      "price": 1350000,
+      "stock": 5,
+      "category_id": "C1",
+      "status": "active",
+      "description": "20L microwave oven with quick defrost and multiple power modes."
+    },
+    {
+      "id": "P15",
+      "name": "Samsung Electric Kettle 1.7L",
+      "price": 260000,
+      "stock": 18,
+      "category_id": "C1",
+      "status": "active",
+      "description": "Fast-boil kettle with auto shut-off and boil-dry protection."
+    },
+    {
+      "id": "P16",
+      "name": "Xiaomi Air Purifier 3H",
+      "price": 2100000,
+      "stock": 2,
+      "category_id": "C3",
+      "status": "active",
+      "description": "Air purifier with HEPA filtration and smart app control."
+    },
+    {
+      "id": "P17",
+      "name": "Artel Washing Machine 7kg",
+      "price": 3200000,
+      "stock": 4,
+      "category_id": "C2",
+      "status": "active",
+      "description": "7kg washing machine with multiple wash programs and quick wash."
+    },
+    {
+      "id": "P18",
+      "name": "LG Smart TV 43 inch",
+      "price": 5200000,
+      "stock": 3,
+      "category_id": "C5",
+      "status": "active",
+      "description": "43-inch smart TV with Wi-Fi, streaming apps, and full HD display."
+    },
+    {
+      "id": "P19",
+      "name": "Philips Coffee Maker",
+      "price": 780000,
+      "stock": 6,
+      "category_id": "C1",
+      "status": "inactive",
+      "description": "Drip coffee maker with 1.2L glass jug and keep-warm function."
+    },
+    {
+      "id": "P20",
+      "name": "Braun Trimmer Kit",
+      "price": 450000,
+      "stock": 9,
+      "category_id": "C4",
+      "status": "active",
+      "description": "Grooming kit with multiple combs and washable head."
+    },
+    {
+      "id": "P21",
+      "name": "TP-Link Smart Bulb",
+      "price": 120000,
+      "stock": 22,
+      "category_id": "C5",
+      "status": "active",
+      "description": "Wi-Fi smart bulb with dimming and scheduling via app."
+    },
+    {
+      "id": "P22",
+      "name": "Midea Fan Heater 1800W",
+      "price": 340000,
+      "stock": 13,
+      "category_id": "C3",
+      "status": "active",
+      "description": "Compact fan heater with overheat protection and adjustable thermostat."
+    },
+    {
+      "id": "P23",
+      "name": "Bosch Food Processor 800W",
+      "price": 1450000,
+      "stock": 4,
+      "category_id": "C1",
+      "status": "active",
+      "description": "Food processor with slicing, shredding, and kneading attachments."
+    },
+    {
+      "id": "P24",
+      "name": "Smart Motion Sensor",
+      "price": 130000,
+      "stock": 0,
+      "category_id": "C5",
+      "status": "active",
+      "description": "Motion sensor with mobile notifications and automation support."
     }
   ],
   "carts": {
@@ -180,7 +293,8 @@
     ],
     "madina": [],
     "admin": [],
-    "user1": []
+    "user1": [],
+    "user": []
   },
   "favorites": {
     "ali": [
@@ -197,7 +311,8 @@
       "P5",
       "P4",
       "P8"
-    ]
+    ],
+    "user": []
   },
   "orders": [
     {
