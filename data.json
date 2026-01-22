@@ -315,7 +315,12 @@
     "admin": [],
     "user1": [],
     "user": [],
-    "bexruz": [],
+    "bexruz": [
+      {
+        "product_id": "P6",
+        "qty": 1
+      }
+    ],
     "0": [],
     "bexuz": [],
     "ee": []

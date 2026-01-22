@@ -532,13 +532,12 @@ def checkout_flow(data, username, items, source):
     if membership is None:
         return
 
-    promo = choose_promotion(data, valid_items)
-
+    # promo = choose_promotion(data, valid_items)
     subtotal = 0
     for it in valid_items:
         subtotal += it["product"].get("price", 0) * it["qty"]
 
-    promo_discount = calc_promo_discount(data, promo, valid_items)
+    promo_discount = calc_promo_discount(data, None, valid_items)
 
     member_rule = data.get("membership_rules", {}).get(
         membership, {"discount_percent": 0, "free_delivery": False})
@@ -557,14 +556,14 @@ def checkout_flow(data, username, items, source):
     if total < 0:
         total = 0
 
-    confirm = confirm_order_screen(valid_items, subtotal, promo, promo_discount,
+    confirm = confirm_order_screen(valid_items, subtotal, None, promo_discount,
                                    membership, membership_discount, delivery_method, delivery_fee, total)
     if confirm is None:
         return
 
     if confirm is False:
         order = build_order(data, username, valid_items, delivery_method, address, membership,
-                            promo, subtotal, promo_discount, membership_discount, delivery_fee, total, "Cancelled")
+                            None, subtotal, promo_discount, membership_discount, delivery_fee, total, "Cancelled")
         data.get("orders", []).append(order)
         storage.save_data(data)
         print(language.t("order_cancelled"))
