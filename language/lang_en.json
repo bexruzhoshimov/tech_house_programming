@@ -163,5 +163,10 @@
   "promotions": "Promotions",
   "change_quantity": "Change quantity",
   "remove_item": "Remove item",
-  "free": "free"
+  "free": "free",
+  "auth_menu_title": "Choose Login/Register",
+  "menu_login": "Login",
+  "register_success": "Registered successfully!",
+  "username_taken": "Username already taken!",
+  "confirm_password": "Confirm password"
 }

@@ -19,6 +19,26 @@
       "username": "user1",
       "password": "user1",
       "role": "customer"
+    },
+    {
+      "username": "bexruz",
+      "password": "1234",
+      "role": "customer"
+    },
+    {
+      "username": "0",
+      "password": "0",
+      "role": "customer"
+    },
+    {
+      "username": "bexuz",
+      "password": "bexuz",
+      "role": "customer"
+    },
+    {
+      "username": "ee",
+      "password": "ee",
+      "role": "customer"
     }
   ],
   "categories": [
@@ -294,7 +314,11 @@
     "madina": [],
     "admin": [],
     "user1": [],
-    "user": []
+    "user": [],
+    "bexruz": [],
+    "0": [],
+    "bexuz": [],
+    "ee": []
   },
   "favorites": {
     "ali": [
@@ -312,7 +336,11 @@
       "P4",
       "P8"
     ],
-    "user": []
+    "user": [],
+    "bexruz": [],
+    "0": [],
+    "bexuz": [],
+    "ee": []
   },
   "orders": [
     {
@@ -559,7 +587,7 @@
     "email": "support@techhouse.uz"
   },
   "settings": {
-    "language": "en",
+    "language": "uz",
     "delivery_fee": 30000
   },
   "counters": {

@@ -1,4 +1,13 @@
-import auth,utils,language,reports,storage
+import auth
+import utils
+import language
+import reports
+import storage
+
+storage = storage.Storage()
+utils = utils.Utils()
+auth = auth.Auth()
+
 
 def run_admin(data, username):
     while True:
@@ -18,7 +27,7 @@ def run_admin(data, username):
             continue
         utils.clear()
         if choice == 0:
-            return
+            exit()
         if choice == 1:
             product_management_menu(data)
         elif choice == 2:
@@ -114,9 +123,11 @@ def update_product_flow(data):
         for idx, p in enumerate(products, 1):
             line = p.get("name", "")
             line += " | " + utils.money(p.get("price", 0))
-            line += " | " + language.t("product_stock") + ": " + str(p.get("stock", 0))
+            line += " | " + language.t("product_stock") + \
+                ": " + str(p.get("stock", 0))
             line += " | " + category_name(data, p.get("category_id"))
-            line += " | " + (language.t("status_active") if p.get("status") == "active" else language.t("status_inactive"))
+            line += " | " + (language.t("status_active") if p.get("status")
+                             == "active" else language.t("status_inactive"))
             print(str(idx) + ". " + line)
         print("0. " + language.t("menu_back"))
         choice = utils.menu_choice(language.t("choose_option"), len(products))
@@ -138,10 +149,14 @@ def edit_product_menu(data, product):
         print(language.t("update_menu_title"))
         print()
         print(language.t("product_name") + ": " + str(product.get("name", "")))
-        print(language.t("product_price") + ": " + utils.money(product.get("price", 0)))
-        print(language.t("product_stock") + ": " + str(product.get("stock", 0)))
-        print(language.t("product_category") + ": " + category_name(data, product.get("category_id")))
-        print(language.t("product_status") + ": " + (language.t("status_active") if product.get("status") == "active" else language.t("status_inactive")))
+        print(language.t("product_price") + ": " +
+              utils.money(product.get("price", 0)))
+        print(language.t("product_stock") +
+              ": " + str(product.get("stock", 0)))
+        print(language.t("product_category") + ": " +
+              category_name(data, product.get("category_id")))
+        print(language.t("product_status") + ": " + (language.t("status_active")
+              if product.get("status") == "active" else language.t("status_inactive")))
         print()
         print("1. " + language.t("update_field_name"))
         print("2. " + language.t("update_field_price"))
@@ -205,7 +220,8 @@ def delete_deactivate_flow(data):
         for idx, p in enumerate(products, 1):
             line = p.get("name", "")
             line += " | " + category_name(data, p.get("category_id"))
-            line += " | " + (language.t("status_active") if p.get("status") == "active" else language.t("status_inactive"))
+            line += " | " + (language.t("status_active") if p.get("status")
+                             == "active" else language.t("status_inactive"))
             print(str(idx) + ". " + line)
         print("0. " + language.t("menu_back"))
         choice = utils.menu_choice(language.t("choose_option"), len(products))
@@ -314,7 +330,8 @@ def order_details_admin(data, order):
 
 
 def change_order_status_flow(data, order):
-    statuses = data.get("order_statuses", ["Pending", "Completed", "Cancelled"])
+    statuses = data.get("order_statuses", [
+                        "Pending", "Completed", "Cancelled"])
     while True:
         utils.clear()
         print(language.t("select_status"))
@@ -405,7 +422,8 @@ def choose_category_admin(data):
         for idx, c in enumerate(categories, 1):
             print(str(idx) + ". " + language.value(c.get("name")))
         print("0. " + language.t("menu_back"))
-        choice = utils.menu_choice(language.t("choose_option"), len(categories))
+        choice = utils.menu_choice(language.t(
+            "choose_option"), len(categories))
         if choice is None:
             print()
             print(language.t("invalid_choice"))

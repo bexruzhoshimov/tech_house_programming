@@ -3,6 +3,10 @@ import language
 import storage
 import utils
 
+auth = auth.Auth()
+utils = utils.Utils()
+storage = storage.Storage()
+
 
 def run_customer(data, username):
     storage.ensure_user_lists(data, username)
@@ -30,7 +34,7 @@ def run_customer(data, username):
             continue
         utils.clear()
         if choice == 0:
-            return
+            exit()
         if choice == 1:
             products_menu(data, username)
         elif choice == 2:
@@ -83,7 +87,8 @@ def browse_by_category(data, username):
         for idx, cat in enumerate(categories, 1):
             print(str(idx) + ". " + language.value(cat.get("name")))
         print("0. " + language.t("menu_back"))
-        choice = utils.menu_choice(language.t("choose_option"), len(categories))
+        choice = utils.menu_choice(language.t(
+            "choose_option"), len(categories))
         if choice is None:
             print()
             print(language.t("invalid_choice"))
@@ -141,7 +146,8 @@ def product_list_screen(data, username, products):
             stock_text = str(stock)
             if stock <= 0:
                 stock_text = language.t("out_of_stock")
-            line = p.get("name", "") + " | " + utils.money(p.get("price", 0)) + " | " + language.t("product_stock") + ": " + stock_text
+            line = p.get("name", "") + " | " + utils.money(p.get("price", 0)) + \
+                " | " + language.t("product_stock") + ": " + stock_text
             print(str(idx) + ". " + line)
         print("0. " + language.t("menu_back"))
         choice = utils.menu_choice(language.t("choose_option"), len(products))
@@ -169,14 +175,18 @@ def product_detail_screen(data, username, product_id):
         print(language.t("product_details"))
         print()
         print(language.t("product_name") + ": " + str(product.get("name", "")))
-        print(language.t("product_category") + ": " + category_name(data, product.get("category_id")))
-        print(language.t("product_price") + ": " + utils.money(product.get("price", 0)))
+        print(language.t("product_category") + ": " +
+              category_name(data, product.get("category_id")))
+        print(language.t("product_price") + ": " +
+              utils.money(product.get("price", 0)))
         stock = product.get("stock", 0)
         if stock <= 0:
-            print(language.t("product_stock") + ": " + language.t("out_of_stock"))
+            print(language.t("product_stock") +
+                  ": " + language.t("out_of_stock"))
         else:
             print(language.t("product_stock") + ": " + str(stock))
-        print(language.t("product_status") + ": " + status_text(product.get("status")))
+        print(language.t("product_status") + ": " +
+              status_text(product.get("status")))
         desc = product.get("description", "")
         if desc:
             print(language.t("product_desc") + ": " + desc)
@@ -289,7 +299,8 @@ def favorites_menu(data, username):
             stock_text = str(stock)
             if stock <= 0:
                 stock_text = language.t("out_of_stock")
-            line = p.get("name", "") + " | " + utils.money(p.get("price", 0)) + " | " + language.t("product_stock") + ": " + stock_text
+            line = p.get("name", "") + " | " + utils.money(p.get("price", 0)) + \
+                " | " + language.t("product_stock") + ": " + stock_text
             print(str(idx) + ". " + line)
         print("0. " + language.t("menu_back"))
         choice = utils.menu_choice(language.t("choose_option"), len(products))
@@ -316,8 +327,10 @@ def favorite_item_menu(data, username, product_id):
         print(language.t("product_details"))
         print()
         print(language.t("product_name") + ": " + str(product.get("name", "")))
-        print(language.t("product_price") + ": " + utils.money(product.get("price", 0)))
-        print(language.t("product_stock") + ": " + str(product.get("stock", 0)))
+        print(language.t("product_price") + ": " +
+              utils.money(product.get("price", 0)))
+        print(language.t("product_stock") +
+              ": " + str(product.get("stock", 0)))
         print()
         print("1. " + language.t("action_remove_fav"))
         print("2. " + language.t("action_add_cart"))
@@ -382,9 +395,11 @@ def cart_menu(data, username):
                     note = language.t("status_inactive")
                 elif qty > p.get("stock", 0):
                     note = language.t("quantity_exceeds_stock")
-            display_items.append({"product": p, "qty": qty, "line_total": line_total, "note": note, "product_id": it.get("product_id")})
+            display_items.append({"product": p, "qty": qty, "line_total": line_total,
+                                 "note": note, "product_id": it.get("product_id")})
         for idx, d in enumerate(display_items, 1):
-            text = str(d.get("qty", 0)) + " x " + d.get("product", {}).get("name", "?")
+            text = str(d.get("qty", 0)) + " x " + \
+                d.get("product", {}).get("name", "?")
             text = text + " | " + utils.money(d.get("line_total", 0))
             if d.get("note"):
                 text = text + " | " + d.get("note")
@@ -410,7 +425,8 @@ def cart_menu(data, username):
         elif choice == 3:
             items = []
             for it in cart_items:
-                items.append({"product_id": it.get("product_id"), "qty": it.get("qty", 0)})
+                items.append({"product_id": it.get(
+                    "product_id"), "qty": it.get("qty", 0)})
             checkout_flow(data, username, items, "cart")
 
 
@@ -474,7 +490,8 @@ def remove_cart_item(data, username, display_items):
         return
     selected = display_items[choice - 1]
     cart_items = data.get("carts", {}).get(username, [])
-    cart_items = [x for x in cart_items if x.get("product_id") != selected.get("product_id")]
+    cart_items = [x for x in cart_items if x.get(
+        "product_id") != selected.get("product_id")]
     data["carts"][username] = cart_items
     storage.save_data(data)
     print(language.t("saved"))
@@ -523,7 +540,8 @@ def checkout_flow(data, username, items, source):
 
     promo_discount = calc_promo_discount(data, promo, valid_items)
 
-    member_rule = data.get("membership_rules", {}).get(membership, {"discount_percent": 0, "free_delivery": False})
+    member_rule = data.get("membership_rules", {}).get(
+        membership, {"discount_percent": 0, "free_delivery": False})
     member_percent = member_rule.get("discount_percent", 0)
     membership_discount = (subtotal - promo_discount) * (member_percent / 100)
     if membership_discount < 0:
@@ -539,12 +557,14 @@ def checkout_flow(data, username, items, source):
     if total < 0:
         total = 0
 
-    confirm = confirm_order_screen(valid_items, subtotal, promo, promo_discount, membership, membership_discount, delivery_method, delivery_fee, total)
+    confirm = confirm_order_screen(valid_items, subtotal, promo, promo_discount,
+                                   membership, membership_discount, delivery_method, delivery_fee, total)
     if confirm is None:
         return
 
     if confirm is False:
-        order = build_order(data, username, valid_items, delivery_method, address, membership, promo, subtotal, promo_discount, membership_discount, delivery_fee, total, "Cancelled")
+        order = build_order(data, username, valid_items, delivery_method, address, membership,
+                            promo, subtotal, promo_discount, membership_discount, delivery_fee, total, "Cancelled")
         data.get("orders", []).append(order)
         storage.save_data(data)
         print(language.t("order_cancelled"))
@@ -552,7 +572,8 @@ def checkout_flow(data, username, items, source):
         utils.pause(language.t("press_enter"))
         return
 
-    order = build_order(data, username, valid_items, delivery_method, address, membership, promo, subtotal, promo_discount, membership_discount, delivery_fee, total, "Pending")
+    order = build_order(data, username, valid_items, delivery_method, address, membership,
+                        promo, subtotal, promo_discount, membership_discount, delivery_fee, total, "Pending")
     data.get("orders", []).append(order)
 
     for it in valid_items:
@@ -614,10 +635,12 @@ def choose_membership(data):
             free = rule.get("free_delivery")
             text = name + " (" + str(percent) + "%)"
             if free:
-                text = text + " + " + language.t("delivery") + " " + language.t("free")
+                text = text + " + " + \
+                    language.t("delivery") + " " + language.t("free")
             print(str(idx) + ". " + text)
         print("0. " + language.t("menu_back"))
-        choice = utils.menu_choice(language.t("choose_option"), len(memberships))
+        choice = utils.menu_choice(language.t(
+            "choose_option"), len(memberships))
         if choice is None:
             print()
             print(language.t("invalid_choice"))
@@ -659,7 +682,8 @@ def choose_promotion(data, valid_items):
             if cid:
                 text = text + " - " + category_name(data, cid)
             print(str(idx) + ". " + text)
-        choice = utils.menu_choice(language.t("choose_option"), len(applicable))
+        choice = utils.menu_choice(language.t(
+            "choose_option"), len(applicable))
         if choice is None:
             print()
             print(language.t("invalid_choice"))
@@ -696,16 +720,20 @@ def confirm_order_screen(valid_items, subtotal, promo, promo_discount, membershi
             p = it["product"]
             qty = it["qty"]
             line_total = p.get("price", 0) * qty
-            print(str(qty) + " x " + p.get("name", "") + " = " + utils.money(line_total))
+            print(str(qty) + " x " + p.get("name", "") +
+                  " = " + utils.money(line_total))
         print()
         print(language.t("subtotal") + ": " + utils.money(subtotal))
         if promo:
-            print(language.t("promo_discount") + ": -" + utils.money(promo_discount))
+            print(language.t("promo_discount") +
+                  ": -" + utils.money(promo_discount))
         else:
             print(language.t("promo_discount") + ": -" + utils.money(0))
-        print(language.t("membership_discount") + ": -" + utils.money(membership_discount))
+        print(language.t("membership_discount") +
+              ": -" + utils.money(membership_discount))
         if delivery_method == "Delivery":
-            print(language.t("delivery_fee") + ": " + utils.money(delivery_fee))
+            print(language.t("delivery_fee") +
+                  ": " + utils.money(delivery_fee))
         else:
             print(language.t("delivery_fee") + ": " + utils.money(0))
         print(language.t("total") + ": " + utils.money(total))
@@ -793,10 +821,12 @@ def orders_menu(data, username):
             utils.pause(language.t("press_enter"))
             return
         for idx, o in enumerate(user_orders, 1):
-            line = o.get("id", "") + " | " + o.get("date", "") + " | " + o.get("status", "") + " | " + utils.money(o.get("total", 0))
+            line = o.get("id", "") + " | " + o.get("date", "") + " | " + \
+                o.get("status", "") + " | " + utils.money(o.get("total", 0))
             print(str(idx) + ". " + line)
         print("0. " + language.t("menu_back"))
-        choice = utils.menu_choice(language.t("choose_option"), len(user_orders))
+        choice = utils.menu_choice(language.t(
+            "choose_option"), len(user_orders))
         if choice is None:
             print()
             print(language.t("invalid_choice"))
@@ -846,7 +876,8 @@ def info_menu(data):
         free = rule.get("free_delivery")
         text = "- " + name + ": " + str(percent) + "%"
         if free:
-            text = text + ", " + language.t("delivery") + " " + language.t("free")
+            text = text + ", " + \
+                language.t("delivery") + " " + language.t("free")
         print(text)
     print()
     print(language.t("promotions"))
@@ -862,7 +893,8 @@ def info_menu(data):
             percent = pr.get("discount_percent", 0)
             text = "- " + name + " (" + str(percent) + "%)"
             if pr.get("category_id"):
-                text = text + " - " + category_name(data, pr.get("category_id"))
+                text = text + " - " + \
+                    category_name(data, pr.get("category_id"))
             print(text)
     utils.pause(language.t("press_enter"))
 

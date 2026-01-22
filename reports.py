@@ -1,9 +1,10 @@
 import datetime
-
 import language
 import storage
 import utils
 
+utils = utils.Utils()
+storage = storage.Storage()
 
 def reports_menu(data):
     while True:
@@ -66,8 +67,10 @@ def sales_summary(data):
     print(language.t("completed_orders") + ": " + str(completed))
     print(language.t("pending_orders") + ": " + str(pending))
     print(language.t("cancelled_orders") + ": " + str(cancelled))
-    print(language.t("revenue") + " (" + language.t("completed_orders") + "): " + utils.money(revenue_completed))
-    print(language.t("revenue") + " (" + language.t("total_orders") + " - " + language.t("cancelled_orders") + "): " + utils.money(revenue_non_cancelled))
+    print(language.t("revenue") + " (" + language.t("completed_orders") +
+          "): " + utils.money(revenue_completed))
+    print(language.t("revenue") + " (" + language.t("total_orders") + " - " +
+          language.t("cancelled_orders") + "): " + utils.money(revenue_non_cancelled))
     utils.pause(language.t("press_enter"))
 
 
@@ -123,7 +126,8 @@ def low_stock_products(data):
         utils.pause(language.t("press_enter"))
         return
     for p in products:
-        line = p.get("name", "") + " | " + language.t("product_stock") + ": " + str(p.get("stock", 0))
+        line = p.get("name", "") + " | " + \
+            language.t("product_stock") + ": " + str(p.get("stock", 0))
         print("- " + line)
     utils.pause(language.t("press_enter"))
 
@@ -167,8 +171,10 @@ def delivery_vs_pickup(data):
     utils.clear()
     print(language.t("report_delivery_pickup"))
     print()
-    print(language.t("delivery_orders") + ": " + str(delivery_count) + " | " + language.t("revenue") + ": " + utils.money(delivery_revenue))
-    print(language.t("pickup_orders") + ": " + str(pickup_count) + " | " + language.t("revenue") + ": " + utils.money(pickup_revenue))
+    print(language.t("delivery_orders") + ": " + str(delivery_count) +
+          " | " + language.t("revenue") + ": " + utils.money(delivery_revenue))
+    print(language.t("pickup_orders") + ": " + str(pickup_count) +
+          " | " + language.t("revenue") + ": " + utils.money(pickup_revenue))
     utils.pause(language.t("press_enter"))
 
 

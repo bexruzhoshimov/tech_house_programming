@@ -1,6 +1,6 @@
 {
   "app_name": "Tech House",
-  "welcome": "Tech House ga xush kelibsiz",
+  "welcome": "Tech Housega xush kelibsiz",
   "select_language": "Tilni tanlang:",
   "language_uz": "O'zbek tili",
   "language_en": "English language",
@@ -163,5 +163,11 @@
   "membership_usage": "A'zolik statistikasi",
   "change_quantity": "Miqdorni o'zgartirish",
   "remove_item": "Elementni o'chirish",
-  "free": "bepul"
+  "free": "bepul",
+  "auth_menu_title": "Kirish uchun tanlang",
+  "menu_login": "Hisobga kirish",
+  "register_title": "Ro'yxatdan o'tish",
+  "register_success": "Muvaffaqiyatli ro'yxatdan o'tdingiz!",
+  "username_taken": "Bu username band!",
+  "confirm_password": "Parolni qayta kiriting"
 }
