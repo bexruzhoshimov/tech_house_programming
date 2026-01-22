@@ -572,7 +572,7 @@ def checkout_flow(data, username, items, source):
         return
 
     order = build_order(data, username, valid_items, delivery_method, address, membership,
-                        promo, subtotal, promo_discount, membership_discount, delivery_fee, total, "Pending")
+                        None, subtotal, promo_discount, membership_discount, delivery_fee, total, "Pending")
     data.get("orders", []).append(order)
 
     for it in valid_items:
