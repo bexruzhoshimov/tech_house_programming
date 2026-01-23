@@ -128,7 +128,7 @@
       "id": "P6",
       "name": "Midea Air Conditioner 12k BTU",
       "price": 4500000,
-      "stock": 1,
+      "stock": 0,
       "category_id": "C3",
       "status": "active",
       "description": "Energy saving air conditioner for medium rooms."
@@ -532,6 +532,29 @@
           "unit_price": 380000
         }
       ]
+    },
+    {
+      "id": "O-1007",
+      "username": "user",
+      "date": "2026-01-23 10:58",
+      "status": "Pending",
+      "delivery_method": "Delivery",
+      "address": "1",
+      "membership": "Bronze",
+      "promotion": "",
+      "subtotal": 4500000,
+      "promo_discount": 0,
+      "membership_discount": 0.0,
+      "delivery_fee": 30000,
+      "total": 4530000.0,
+      "items": [
+        {
+          "product_id": "P6",
+          "name": "Midea Air Conditioner 12k BTU",
+          "qty": 1,
+          "unit_price": 4500000
+        }
+      ]
     }
   ],
   "order_statuses": [
@@ -596,7 +619,7 @@
     "delivery_fee": 30000
   },
   "counters": {
-    "order": 1007,
+    "order": 1008,
     "product": 13,
     "category": 5
   }
